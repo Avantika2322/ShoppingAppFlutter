@@ -22,6 +22,16 @@ class MyApp extends StatelessWidget {
           hintStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
           prefixIconColor: Color.fromRGBO(119, 119, 119, 1),
         ),
+        textTheme: const TextTheme(
+          titleMedium: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+          bodySmall: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 16,
+          ),
+        ),
         useMaterial3: true,
       ),
       home: const HomePage(),
