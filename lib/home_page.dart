@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_app/global_data.dart';
 import 'package:shopping_app/product_card.dart';
+import 'package:shopping_app/product_details.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,6 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   // const HomePage({super.key});
+
 
   final List<String> filters = const ['All', 'Adidas', 'Nike', 'Bata'];
   late String selectedFilter;
@@ -35,16 +36,16 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Column(
           children: [
-            const Row(
+             Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(15.0),
+                  padding: const EdgeInsets.all(15.0),
                   child: Text(
                     'Shoes\nCollection',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   child: TextField(
                     maxLines: 1,
                     decoration: InputDecoration(
