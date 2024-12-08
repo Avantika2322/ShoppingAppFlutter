@@ -11,6 +11,7 @@ class ProductDetails extends StatefulWidget {
 
 class _ProductDetailsState extends State<ProductDetails> {
   int selectedSize = 0;
+  int currentPage = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +58,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             setState(() {
-                              selectedSize =size;
+                              selectedSize = size;
                             });
                           },
                           child: Chip(
@@ -93,6 +94,19 @@ class _ProductDetailsState extends State<ProductDetails> {
               ],
             ),
           )
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentPage,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: '',
+          ),
         ],
       ),
     );

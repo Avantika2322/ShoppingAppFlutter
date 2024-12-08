@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/global_data.dart';
 import 'package:shopping_app/product_card.dart';
+import 'package:shopping_app/product_details.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,7 +12,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   // const HomePage({super.key});
-
 
   final List<String> filters = const ['All', 'Adidas', 'Nike', 'Bata'];
   late String selectedFilter;
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Column(
           children: [
-             Row(
+            Row(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(15.0),
@@ -99,7 +99,18 @@ class _HomePageState extends State<HomePage> {
                 itemCount: products.length,
                 itemBuilder: (context, index) {
                   final product = products[index];
-                  return ProductCard(product: product);
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return ProductDetails(product: product);
+                          },
+                        ),
+                      );
+                    },
+                    child: ProductCard(product: product),
+                  );
                 },
               ),
             ),
